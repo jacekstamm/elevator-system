@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/elevators_db
+#    username: elevator_user
+#    password: elevator_password
+#  jpa:
+#    open-in-view: false
+#  liquibase:
+#    change-log: classpath:db/changelog-master.xml
