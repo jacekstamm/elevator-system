@@ -28,13 +28,15 @@ public class ElevatorService {
 
     public String initializeElevators(InitializeRequest request) {
         final int maxElevators = 16;
+        final int maxFloors = 30;
         checkInitialRequest(request);
         int numberOfElevators = Math.min(request.getNumberOfElevators(), maxElevators);
-        this.numberOfFloors = request.getNumberOfFloors();
+        this.numberOfFloors = Math.min(request.getNumberOfFloors(), maxFloors);
         elevators = new ArrayList<>();
         initElevators(numberOfElevators);
         pickUpLocations = new LinkedList<>();
-        return "System was initialized with " + elevators.size() + " elevators operating over " + this.numberOfFloors + " floors.";
+        log.info(initializeReturnString(elevators.size()));
+        return initializeReturnString(elevators.size());
     }
 
     public void pickUp(PickUpRequest request) {
@@ -132,6 +134,10 @@ public class ElevatorService {
 
     protected int getNumberOfFloors() {
         return numberOfFloors;
+    }
+
+    private String initializeReturnString(int elevatorSize) {
+        return "System was initialized with " + elevatorSize + " elevators operating over " + this.numberOfFloors + " floors.";
     }
 
     private String destinationReturnString(int elevationId, int destinationFloor) {

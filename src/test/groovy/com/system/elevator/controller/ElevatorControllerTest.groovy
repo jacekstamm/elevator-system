@@ -23,7 +23,6 @@ class ElevatorControllerTest extends Specification {
 
     private Gson gson = new Gson()
 
-
     def 'should initialize system with InitializeRequest'() {
         when:
         def result = mockMvc.perform(post('/elevator/initializeSystem')
@@ -33,7 +32,7 @@ class ElevatorControllerTest extends Specification {
                 .andReturn().response
 
         then:
-        result.getContentAsString() == 'System was initialized with 3 elevators operating over 5 floors.'
+        result.getContentAsString() == 'System was initialized with 3 elevators operating over 10 floors.'
     }
 
     @Unroll

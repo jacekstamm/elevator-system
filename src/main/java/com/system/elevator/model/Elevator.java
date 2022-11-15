@@ -5,8 +5,10 @@ import com.system.elevator.enums.ElevatorStatus;
 import java.util.LinkedList;
 import java.util.Queue;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
+@Slf4j
 public class Elevator {
 
     private int id;
@@ -33,6 +35,7 @@ public class Elevator {
 
     public void addDestination(Integer destinationFloor) {
         this.destinationFloors.add(destinationFloor);
+        log.info("Added new destination for elevator with ID: " + this.id + ". New destination is " + destinationFloor + " floor.");
     }
 
     public ElevatorDirection direction() {

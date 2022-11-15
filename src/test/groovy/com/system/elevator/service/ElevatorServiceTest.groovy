@@ -127,6 +127,4 @@ class ElevatorServiceTest extends Specification {
         getElevatorsWithOneDestination()
         service.destination(getSecondDestinationRequest())
     }
-
-
 }
