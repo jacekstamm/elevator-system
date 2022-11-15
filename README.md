@@ -42,7 +42,8 @@ Example of UpdateRequest:
     "newDestination" : 9
 }
 
-5) POST - > `elevator/step` - Make one step in elevator system
+5) POST -> `elevator/step` - Make one step in elevator system
+6) GET -> `elevator/status` - Check System Status
 
 Command Line run:
 1) Application `gradle bootRun`

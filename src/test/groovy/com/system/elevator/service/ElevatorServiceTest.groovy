@@ -114,6 +114,20 @@ class ElevatorServiceTest extends Specification {
         result.getDestinationFloors() == [10, 8]
     }
 
+    def 'should return elevators system status'() {
+        given:
+        getElevatorsWithOneDestination()
+
+        when:
+        String result = service.elevatorsStatus()
+
+        then:
+        result == '[Elevator(id=0, currentFloor=0, destinationFloors=[5]), ' +
+                'Elevator(id=1, currentFloor=0, destinationFloors=[]), ' +
+                'Elevator(id=2, currentFloor=0, destinationFloors=[])]'
+
+    }
+
     private void initSystem() {
         service.initializeElevators(getInitializeRequest())
     }

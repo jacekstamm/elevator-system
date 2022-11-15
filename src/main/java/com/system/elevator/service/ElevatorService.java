@@ -67,7 +67,7 @@ public class ElevatorService {
         return "Elevator destination Updated : " + elevatorToUpdate.getDestinationFloors().toString();
     }
 
-    public String step() {
+    public void step() {
         for (Elevator currentElevator : elevators) {
             switch (currentElevator.status()) {
                 case EMPTY:
@@ -93,6 +93,9 @@ public class ElevatorService {
                     }
             }
         }
+    }
+
+    public String elevatorsStatus() {
         return elevators.toString();
     }
 

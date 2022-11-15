@@ -6,6 +6,7 @@ import com.system.elevator.request.PickUpRequest;
 import com.system.elevator.request.UpdateRequest;
 import com.system.elevator.service.ElevatorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,7 +41,12 @@ public class ElevatorController {
     }
 
     @PostMapping("/step")
-    public String elevatorsStep() {
-        return service.step();
+    public void elevatorsStep() {
+        service.step();
+    }
+
+    @GetMapping("/status")
+    public String status() {
+        return service.elevatorsStatus();
     }
 }
